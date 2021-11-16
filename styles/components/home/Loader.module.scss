@@ -1,0 +1,107 @@
+@import "../../abstracts/variables";
+@import "../../abstracts/mixins";
+@import "../../abstracts/typography";
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .container {
+    @include container;
+
+    @media (max-width: $screen-md) {
+      max-width: 28.125rem;
+    }
+  }
+
+  .lockup {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: $screen-md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    h2 {
+      @include font-serif;
+      font-weight: bold;
+      font-size: 7rem;
+      line-height: 1;
+      color: $color-sand;
+
+      @media (max-width: $screen-xl) {
+        font-size: 5rem;
+      }
+
+      @media (max-width: $screen-lg) {
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  .titleFirst {
+    grid-area: 1 / 5 / 1 /9;
+    text-align: left;
+
+    @media (max-width: $screen-md) {
+      text-align: right;
+    }
+  }
+
+  .titleSecond {
+    grid-area: 2 / 2 / 2 / 6;
+    text-align: right;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: $color-sand;
+    -webkit-text-stroke-width: 1px;
+
+    @media (max-width: $screen-md) {
+      text-align: right;
+    }
+  }
+
+  .titleThird {
+    grid-area: 3 / 4 / 3 / 12;
+
+    @media (max-width: $screen-md) {
+      grid-area: 3 / 1 / 3 / 5;
+    }
+  }
+
+  .background {
+    width: 100vw;
+    height: 0;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .progress {
+    grid-area: 2 / 8 / 4 / 10;
+
+    @media (max-width: $screen-md) {
+      position: fixed;
+      width: 6.25rem;
+      height: auto;
+      bottom: 3.125rem;
+      left: 50%;
+      margin-left: -3.125rem;
+    }
+  }
+}

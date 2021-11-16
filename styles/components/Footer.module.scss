@@ -1,0 +1,14 @@
+@import "../abstracts/mixins";
+
+// Footer Styles
+.footer {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20rem;
+  margin-bottom: 3rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid $color-gray;
+  text-align: left;
+}

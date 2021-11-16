@@ -1,0 +1,40 @@
+@import "./abstracts/variables";
+@import "./abstracts/typography";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  background: $color-sand;
+  font-size: 16px;
+  @include font-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.loading {
+  overflow: hidden;
+  height: 100vh;
+}

@@ -1,0 +1,33 @@
+@import "../abstracts/mixins";
+@import "../abstracts/typography";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 2rem;
+  z-index: 10;
+
+  .container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .h1 {
+    @include font-serif;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      @include font-serif;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+  }
+}
