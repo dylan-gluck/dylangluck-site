@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { useViewportScroll, motion, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
 import styles from "../../styles/components/home/Intro.module.scss";
-
 import {
   cubeAnimation,
   pyramidAnimation,

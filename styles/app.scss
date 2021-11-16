@@ -9,6 +9,12 @@ body {
   background: $color-sand;
   font-size: 16px;
   @include font-serif;
+
+  ::selection,
+  ::-moz-selection {
+    color: $color-black;
+    background: $color-orange;
+  }
 }
 
 h1,
@@ -32,9 +38,41 @@ a {
 
 * {
   box-sizing: border-box;
+  cursor: none;
 }
 
 body.loading {
   overflow: hidden;
   height: 100vh;
+}
+
+.cursor {
+  .ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid $color-orange;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+    will-change: width, height, transform, border;
+    z-index: 999;
+    pointer-events: none;
+  }
+
+  .dot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: $color-orange;
+    mix-blend-mode: normal;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    pointer-events: none;
+  }
 }

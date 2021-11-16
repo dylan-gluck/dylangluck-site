@@ -1,7 +1,5 @@
 import Link from "next/link";
-
 import { projects } from "../../data/projects";
-
 import styles from "../../styles/components/home/Projects.module.scss";
 
 const Projects = () => {

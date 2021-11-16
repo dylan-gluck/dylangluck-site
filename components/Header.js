@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { motion, useAnimation } from "framer-motion";
-
+import { MouseContext } from "../context/mouseContext";
 import styles from "../styles/components/Header.module.scss";
-
 import {
   logoAnimation,
   navigationAnimation,
   linkAnimation,
 } from "../animations/header";
-
 import { links } from "../data/links";
 
 const Header = () => {
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+
   const headerAnimation = useAnimation();
   const showHeader = () => headerAnimation.start("animate");
   const hideHeader = () => headerAnimation.start("exit");
@@ -23,21 +23,16 @@ const Header = () => {
     let isScrolling, start, end, distance;
 
     const handleScroll = (event) => {
-      // Set starting position
       if (!start) {
         start = window.pageYOffset;
       }
-
       // Clear our timeout throughout the scroll
       window.clearTimeout(isScrolling);
-
       // Set a timeout to run after scrolling ends
       isScrolling = setTimeout(function () {
         // Calculate distance
         end = window.pageYOffset;
         distance = end - start;
-
-        // Run the callback
         if (distance <= 0) {
           // Scrolling Down
           showHeader();
@@ -45,7 +40,6 @@ const Header = () => {
           // Scrolling Up
           hideHeader();
         }
-
         // Reset calculations
         start = null;
         end = null;
@@ -81,7 +75,13 @@ const Header = () => {
         >
           {links.map((link) => (
             <Link href={link.url} key={link.id}>
-              <motion.a variants={linkAnimation}>{link.name}</motion.a>
+              <motion.a
+                variants={linkAnimation}
+                onMouseEnter={() => cursorChangeHandler("navigation")}
+                onMouseLeave={() => cursorChangeHandler("")}
+              >
+                {link.name}
+              </motion.a>
             </Link>
           ))}
         </motion.nav>

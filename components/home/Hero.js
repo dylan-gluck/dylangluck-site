@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { useContext } from "react";
 import { motion } from "framer-motion";
-
+import { MouseContext } from "../../context/mouseContext";
 import styles from "../../styles/components/home/Hero.module.scss";
-
 import {
   fadeUp,
   fadeDown,
@@ -11,6 +11,8 @@ import {
 } from "../../animations/hero";
 
 const Hero = () => {
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
@@ -29,6 +31,8 @@ const Hero = () => {
             variants={fadeUp}
             key="title1"
             className={styles.titleFirst}
+            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseLeave={() => cursorChangeHandler("")}
           >
             I Create
           </motion.h2>
@@ -36,6 +40,8 @@ const Hero = () => {
             variants={fadeLeft}
             key="title2"
             className={styles.titleSecond}
+            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseLeave={() => cursorChangeHandler("")}
           >
             Meaningful
           </motion.h2>
@@ -43,13 +49,17 @@ const Hero = () => {
             variants={fadeUp}
             key="title3"
             className={styles.titleThird}
+            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseLeave={() => cursorChangeHandler("")}
           >
-            User Exleriences
+            User Experiences
           </motion.h2>
           <motion.p
             variants={fadeDown}
             key="introP"
             className={styles.paragraph}
+            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseLeave={() => cursorChangeHandler("")}
           >
             Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
             auctor. Nulla vitae elit libero, a pharetra augue.
@@ -64,6 +74,8 @@ const Hero = () => {
             whileHover="hover"
             whileTap="tap"
             className={styles.download}
+            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseLeave={() => cursorChangeHandler("")}
           >
             <span>Download Resume</span>
             <i className="fa-solid fa-arrow-down"></i>

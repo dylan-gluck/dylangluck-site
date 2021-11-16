@@ -1,7 +1,9 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { useEffect, useState, useContext } from "react";
 
+import { MouseContext } from "../context/mouseContext";
+
+import Cursor from "../components/Cursor.js";
 import Header from "../components/Header.js";
 import Footer from "../components/Footer.js";
 
@@ -12,6 +14,7 @@ import Projects from "../components/home/Projects.js";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   useEffect(() => {
     loading
@@ -25,19 +28,18 @@ export default function Home() {
         <title>Home | Dylan Navajas Gluck</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AnimatePresence>
-        {loading ? (
-          <Loader setLoading={setLoading} key="loader" />
-        ) : (
-          <>
-            <Header />
-            <Hero />
-            <Intro />
-            <Projects />
-            <Footer />
-          </>
-        )}
-      </AnimatePresence>
+      <Cursor />
+      {loading ? (
+        <Loader setLoading={setLoading} key="loader" />
+      ) : (
+        <>
+          <Header />
+          <Hero />
+          <Intro />
+          <Projects />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
