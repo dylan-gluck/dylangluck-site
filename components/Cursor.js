@@ -24,7 +24,7 @@ const Cursor = () => {
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
-  }, []);
+  }, [cursorX, cursorY]);
 
   return (
     <div className="cursor">
