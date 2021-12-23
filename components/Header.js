@@ -14,15 +14,20 @@ const Header = () => {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   const headerAnimation = useAnimation();
-  const showHeader = () => headerAnimation.start("animate");
-  const hideHeader = () => headerAnimation.start("exit");
 
   useEffect(() => {
+    function showHeader() {
+      return headerAnimation.start("animate");
+    }
+    function hideHeader() {
+      return headerAnimation.start("exit");
+    }
+
     headerAnimation.start("animate");
 
     let isScrolling, start, end, distance;
 
-    const handleScroll = (event) => {
+    function handleScroll(event) {
       if (!start) {
         start = window.pageYOffset;
       }
@@ -45,7 +50,7 @@ const Header = () => {
         end = null;
         distance = null;
       }, 30);
-    };
+    }
 
     window.addEventListener("scroll", handleScroll);
 
@@ -74,7 +79,7 @@ const Header = () => {
           className={styles.nav}
         >
           {links.map((link) => (
-            <Link href={link.url} key={link.id}>
+            <Link href={link.url} key={link.id} passHref>
               <motion.a
                 variants={linkAnimation}
                 onMouseEnter={() => cursorChangeHandler("navigation")}
