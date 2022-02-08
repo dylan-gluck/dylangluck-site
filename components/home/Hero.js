@@ -61,11 +61,11 @@ const Hero = () => {
             onMouseEnter={() => cursorChangeHandler("difference")}
             onMouseLeave={() => cursorChangeHandler("")}
           >
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor. Nulla vitae elit libero, a pharetra augue.
+            Bridging the gap between design and usability. Currently:
+            Engineering Team Lead @ Unqork
           </motion.p>
         </motion.div>
-        <Link href="/downloads/dylangluck-resume.pdf">
+        <Link href="/downloads/dylangluck-resume.pdf" passHref>
           <motion.a
             variants={downloadAnimation}
             initial="hidden"

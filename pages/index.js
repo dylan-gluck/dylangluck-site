@@ -10,7 +10,6 @@ import Footer from "../components/Footer.js";
 import Loader from "../components/home/Loader.js";
 import Hero from "../components/home/Hero.js";
 import Intro from "../components/home/Intro.js";
-import Projects from "../components/home/Projects.js";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -36,7 +35,6 @@ export default function Home() {
           <Header />
           <Hero />
           <Intro />
-          <Projects />
           <Footer />
         </>
       )}

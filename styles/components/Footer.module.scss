@@ -1,4 +1,5 @@
 @import "../abstracts/mixins";
+@import "../abstracts/variables";
 
 // Footer Styles
 .footer {
@@ -11,4 +12,9 @@
   padding: 1rem 0 0;
   border-top: 1px solid $color-gray;
   text-align: left;
+
+  @media (max-width: $screen-md) {
+    justify-content: center;
+    text-align: center;
+  }
 }

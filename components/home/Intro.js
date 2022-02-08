@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useViewportScroll, motion, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useContext } from "react";
+import { MouseContext } from "../../context/mouseContext";
 import styles from "../../styles/components/home/Intro.module.scss";
 import {
   cubeAnimation,
@@ -9,6 +11,7 @@ import {
 } from "../../animations/intro";
 
 const Intro = () => {
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
   const { scrollY } = useViewportScroll();
   const y1 = useTransform(scrollY, [0, 1000], [-100, 200]);
   const y2 = useTransform(scrollY, [0, 1000], [-200, 0]);
@@ -61,9 +64,16 @@ const Intro = () => {
           <motion.h2 key="1" variants={fadeUp}>
             UX Designer and Engineer based in <strong>California</strong>
           </motion.h2>
-          <Link href="/about">
-            <motion.a key="2" variants={fadeUp} className={styles.basicLink}>
-              Learn More About Me
+          <Link href="https://www.linkedin.com/in/dylangluck/" passHref>
+            <motion.a
+              key="2"
+              variants={fadeUp}
+              className={styles.basicLink}
+              target="_blank"
+              onMouseEnter={() => cursorChangeHandler("navigation")}
+              onMouseLeave={() => cursorChangeHandler("")}
+            >
+              Industry Experience
             </motion.a>
           </Link>
         </motion.div>

@@ -84,6 +84,7 @@ const Header = () => {
                 variants={linkAnimation}
                 onMouseEnter={() => cursorChangeHandler("navigation")}
                 onMouseLeave={() => cursorChangeHandler("")}
+                target={link.target}
               >
                 {link.name}
               </motion.a>
