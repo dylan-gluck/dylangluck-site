@@ -89,6 +89,10 @@
     color: $color-gray-dark;
     font-size: 1rem;
 
+    a {
+      text-decoration: underline;
+    }
+
     @media (max-width: $screen-xl) {
       font-size: 0.875rem;
     }

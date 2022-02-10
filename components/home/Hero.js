@@ -1,7 +1,12 @@
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { MouseContext } from "../../context/mouseContext";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTree } from "@fortawesome/free-solid-svg-icons";
+
 import styles from "../../styles/components/home/Hero.module.scss";
 import {
   fadeUp,
@@ -54,16 +59,19 @@ const Hero = () => {
           >
             User Experiences
           </motion.h2>
-          <motion.p
+          <motion.div
             variants={fadeDown}
             key="introP"
             className={styles.paragraph}
             onMouseEnter={() => cursorChangeHandler("difference")}
             onMouseLeave={() => cursorChangeHandler("")}
           >
-            Bridging the gap between design and usability. Currently:
-            Engineering Team Lead @ Unqork
-          </motion.p>
+            <ReactMarkdown>
+              **Ask Yourself:** Can we break away from the manupulative
+              practices introduced by the 2010 tech companies and take ownership
+              of more than our data? Read the [white paper](#).
+            </ReactMarkdown>
+          </motion.div>
         </motion.div>
         <Link href="/downloads/dylangluck-resume.pdf" passHref>
           <motion.a
@@ -77,8 +85,8 @@ const Hero = () => {
             onMouseEnter={() => cursorChangeHandler("difference")}
             onMouseLeave={() => cursorChangeHandler("")}
           >
-            <span>Download Resume</span>
-            <i className="fa-solid fa-arrow-down"></i>
+            <span>Explore New Worlds</span>
+            <FontAwesomeIcon icon={faTree} />
           </motion.a>
         </Link>
       </div>
