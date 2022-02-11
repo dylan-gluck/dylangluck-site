@@ -5,12 +5,7 @@ import { MouseContext } from "../../context/mouseContext";
 import { heroContent } from "../../data/heroContent";
 
 import styles from "../../styles/components/home/Hero.module.scss";
-import {
-  fadeUp,
-  fadeDown,
-  fadeLeft,
-  downloadAnimation,
-} from "../../animations/hero";
+import { fadeUp, fadeDown, fadeLeft } from "../../animations/hero";
 
 function ExposeMeaning(props) {
   const titles = props.titles.map((title, i) => (
@@ -32,7 +27,7 @@ function Hero() {
           animate="show"
           exit="exit"
           transition={{
-            delayChildren: 1,
+            delayChildren: 0,
             staggerChildren: 0.15,
             ease: [0.6, 0.01, -0.05, 0.9],
           }}
