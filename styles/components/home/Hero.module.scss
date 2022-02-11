@@ -60,17 +60,39 @@
   }
 
   .titleSecond {
+    position: relative;
     grid-area: 2 / 2 / 2 / 8;
     text-align: right;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-color: $color-black;
     -webkit-text-stroke-width: 1px;
 
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+    }
+
     @media (max-width: $screen-md) {
       grid-area: 2 / 1 / 2 / 5;
       text-align: right;
       padding-right: 1rem;
     }
+  }
+
+  .titleVisible {
+    z-index: 2;
+  }
+
+  .titleHidden {
+    -webkit-text-stroke-color: $color-sand;
+    // Disable select of hidden text
+    -webkit-user-select: none; // Safari
+    -moz-user-select: none; // Firefox
+    -ms-user-select: none; // IE10+/Edge
+    user-select: none; // Standard
+    z-index: 1;
   }
 
   .titleThird {
