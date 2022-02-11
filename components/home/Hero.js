@@ -1,16 +1,22 @@
-import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { MouseContext } from "../../context/mouseContext";
-import styles from "../../styles/components/home/Hero.module.scss";
-import {
-  fadeUp,
-  fadeDown,
-  fadeLeft,
-  downloadAnimation,
-} from "../../animations/hero";
+import { heroContent } from "../../data/heroContent";
 
-const Hero = () => {
+import styles from "../../styles/components/home/Hero.module.scss";
+import { fadeUp, fadeDown, fadeLeft } from "../../animations/hero";
+
+function ExposeMeaning(props) {
+  const titles = props.titles.map((title, i) => (
+    <span key={i} className={i < 1 ? styles.titleVisible : styles.titleHidden}>
+      {title}
+    </span>
+  ));
+  return titles;
+}
+
+function Hero() {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   return (
@@ -21,7 +27,7 @@ const Hero = () => {
           animate="show"
           exit="exit"
           transition={{
-            delayChildren: 1,
+            delayChildren: 0,
             staggerChildren: 0.15,
             ease: [0.6, 0.01, -0.05, 0.9],
           }}
@@ -31,59 +37,42 @@ const Hero = () => {
             variants={fadeUp}
             key="title1"
             className={styles.titleFirst}
-            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseEnter={() => cursorChangeHandler("expose")}
             onMouseLeave={() => cursorChangeHandler("")}
           >
-            I Create
+            {heroContent.title1}
           </motion.h2>
           <motion.h2
             variants={fadeLeft}
             key="title2"
             className={styles.titleSecond}
-            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseEnter={() => cursorChangeHandler("expose")}
             onMouseLeave={() => cursorChangeHandler("")}
           >
-            Meaningful
+            <ExposeMeaning titles={heroContent.title2} />
           </motion.h2>
           <motion.h2
             variants={fadeUp}
             key="title3"
             className={styles.titleThird}
-            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseEnter={() => cursorChangeHandler("expose")}
             onMouseLeave={() => cursorChangeHandler("")}
           >
-            User Experiences
+            {heroContent.title3}
           </motion.h2>
-          <motion.p
+          <motion.div
             variants={fadeDown}
             key="introP"
             className={styles.paragraph}
-            onMouseEnter={() => cursorChangeHandler("difference")}
+            onMouseEnter={() => cursorChangeHandler("default")}
             onMouseLeave={() => cursorChangeHandler("")}
           >
-            Bridging the gap between design and usability. Currently:
-            Engineering Team Lead @ Unqork
-          </motion.p>
+            <ReactMarkdown>{heroContent.deck}</ReactMarkdown>
+          </motion.div>
         </motion.div>
-        <Link href="/downloads/dylangluck-resume.pdf" passHref>
-          <motion.a
-            variants={downloadAnimation}
-            initial="hidden"
-            animate="show"
-            exit="exit"
-            whileHover="hover"
-            whileTap="tap"
-            className={styles.download}
-            onMouseEnter={() => cursorChangeHandler("difference")}
-            onMouseLeave={() => cursorChangeHandler("")}
-          >
-            <span>Download Resume</span>
-            <i className="fa-solid fa-arrow-down"></i>
-          </motion.a>
-        </Link>
       </div>
     </section>
   );
-};
+}
 
 export default Hero;
