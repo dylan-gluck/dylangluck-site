@@ -2,7 +2,7 @@
 @import "../abstracts/mixins";
 @import "../abstracts/typography";
 
-.resume {
+.resumePage {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -79,13 +79,39 @@
     }
   }
 
-  .sectionTitle {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: $color-gray;
+  .columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
 
-    @media (min-width: $screen-xl) {
-      font-size: 2rem;
+    .left {
+      width: 100%;
+
+      @media (min-width: $screen-md) {
+        width: 38%;
+      }
+    }
+    .right {
+      width: 100%;
+
+      @media (min-width: $screen-md) {
+        width: 50%;
+      }
+    }
+  }
+
+  .section {
+    margin-bottom: 3rem;
+
+    .sectionTitle {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: $color-gray;
+
+      @media (min-width: $screen-xl) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -113,6 +139,117 @@
         @media (min-width: $screen-xl) {
           font-size: 1.2rem;
           padding: 0.6rem 2.6rem;
+        }
+      }
+    }
+  }
+
+  .education {
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1;
+      margin-bottom: 0;
+
+      @media (min-width: $screen-sm) {
+        font-size: 2.8rem;
+      }
+
+      @media (min-width: $screen-xl) {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  .experience {
+    .position {
+      display: block;
+      margin-bottom: 3rem;
+
+      .title {
+        font-size: 2rem;
+
+        @media (min-width: $screen-lg) {
+          font-size: 3rem;
+        }
+
+        @media (min-width: $screen-xl) {
+          font-size: 4rem;
+        }
+      }
+
+      .employer {
+        display: inline-block;
+        color: $color-gray-dark;
+
+        @media (min-width: $screen-lg) {
+          font-size: 1.2rem;
+        }
+
+        @media (min-width: $screen-xl) {
+          font-size: 2.4rem;
+        }
+      }
+
+      .meta {
+        display: flex;
+        justify-content: flex-start;
+
+        span {
+          display: inline-block;
+          margin-right: 1rem;
+          color: $color-gray;
+          font-size: 0.8rem;
+
+          @media (min-width: $screen-xl) {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .contracts {
+    padding: 2rem;
+    background: $color-black;
+    .position {
+      display: block;
+      margin-bottom: 3rem;
+
+      .employer {
+        font-size: 1.6rem;
+        color: $color-white;
+
+        @media (min-width: $screen-lg) {
+          font-size: 2.5rem;
+        }
+
+        @media (min-width: $screen-xl) {
+          font-size: 3rem;
+        }
+      }
+
+      .title {
+        display: inline-block;
+        color: $color-gray-dark;
+
+        @media (min-width: $screen-xl) {
+          font-size: 2rem;
+        }
+      }
+
+      .meta {
+        display: flex;
+        justify-content: flex-start;
+
+        span {
+          display: inline-block;
+          margin-right: 1rem;
+          color: $color-gray;
+          font-size: 0.8rem;
+
+          @media (min-width: $screen-xl) {
+            font-size: 1.3rem;
+          }
         }
       }
     }
