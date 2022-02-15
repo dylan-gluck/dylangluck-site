@@ -81,6 +81,9 @@ const Header = () => {
           {links.map((link) => (
             <Link href={link.url} key={link.id} passHref>
               <motion.a
+                // className={
+                //   link.url == window.location.pathname ? styles.active : null
+                // }
                 variants={linkAnimation}
                 onMouseEnter={() => cursorChangeHandler("navigation")}
                 onMouseLeave={() => cursorChangeHandler("")}
