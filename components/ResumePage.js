@@ -46,6 +46,19 @@ function ResumePage() {
             })}
           </ul>
         </div>
+        {/* Doesnt Make Sense to Use This Here */}
+        {/* <div className={styles.keywords}>
+          <h3 className={styles.sectionTitle}>Current Research</h3>
+          <ul>
+            {resumeContent.about.research.map((keyword, i) => {
+              return (
+                <li className={styles.keyword} key={i}>
+                  {keyword}
+                </li>
+              );
+            })}
+          </ul>
+        </div> */}
       </div>
     </section>
   );
