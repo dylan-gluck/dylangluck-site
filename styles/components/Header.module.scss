@@ -34,6 +34,10 @@
       margin-bottom: 0.5rem;
       transition: color 200ms;
 
+      &.active {
+        font-weight: 900;
+      }
+
       &:hover {
         color: $color-black;
       }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { MouseContext } from "../context/mouseContext";
 import styles from "../styles/components/Header.module.scss";
@@ -12,10 +12,15 @@ import { links } from "../data/links";
 
 const Header = () => {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const [path, setPath] = useState(null);
 
   const headerAnimation = useAnimation();
 
   useEffect(() => {
+    // Set Current Path for Active States
+    setPath(window.location.pathname);
+
+    // Handle Show/Hide header
     function showHeader() {
       return headerAnimation.start("animate");
     }
@@ -81,6 +86,7 @@ const Header = () => {
           {links.map((link) => (
             <Link href={link.url} key={link.id} passHref>
               <motion.a
+                className={link.url == path ? styles.active : null}
                 variants={linkAnimation}
                 onMouseEnter={() => cursorChangeHandler("navigation")}
                 onMouseLeave={() => cursorChangeHandler("")}

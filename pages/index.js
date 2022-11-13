@@ -1,17 +1,13 @@
 import Head from "next/head";
 import { useEffect, useState, useContext } from "react";
 
-import { MouseContext } from "../context/mouseContext";
-
-import Cursor from "../components/Cursor.js";
-import Header from "../components/Header.js";
-
-import Loader from "../components/home/Loader.js";
-import Hero from "../components/home/Hero.js";
+import Cursor from "../components/Cursor";
+import Header from "../components/Header";
+import Loader from "../components/home/Loader";
+import Hero from "../components/home/Hero";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   useEffect(() => {
     loading
