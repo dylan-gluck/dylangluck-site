@@ -1,7 +1,7 @@
 export const resumeContent = {
   about: {
     intro:
-      "UX Specialist with over 11 years in the industry. Committed to building beautiful applications.",
+      "UX Specialist with over 13 years experience building beautiful applications.",
     title: "Engineering Team Lead",
     employer: "Unqork",
     contact: {

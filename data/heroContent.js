@@ -2,5 +2,5 @@ export const heroContent = {
   title1: "I Create",
   title2: ["Meaningful", "Memorable"],
   title3: "User Experiences",
-  deck: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis nisi ut ex consequat tempus. Aenean a turpis a lacus varius porta. Etiam faucibus est nisi.",
+  deck: "At the core of every problem is a creative solution. Bridging the gap between functional design and meaningful engineering.",
 };
