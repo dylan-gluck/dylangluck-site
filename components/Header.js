@@ -67,15 +67,17 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <motion.h1
-          variants={logoAnimation}
-          initial="initial"
-          animate={headerAnimation}
-          exit="exit"
-          className={styles.h1}
-        >
-          Dylan Navajas Gluck
-        </motion.h1>
+        <Link href={"/"}>
+          <motion.h1
+            variants={logoAnimation}
+            initial="initial"
+            animate={headerAnimation}
+            exit="exit"
+            className={styles.h1}
+          >
+            Dylan Navajas Gluck
+          </motion.h1>
+        </Link>
         <motion.nav
           variants={navigationAnimation}
           initial="initial"
