@@ -4,16 +4,21 @@ import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import { resumeContent } from "../data/resumeContent";
 import styles from "../styles/components/Resume.module.scss";
 
+function printPage() {
+  window.print();
+}
+
 function ResumePage() {
   return (
     <article className={styles.resumePage}>
       <div className={styles.container}>
         <section className={styles.about}>
-          <Link href={"#"} passHref>
-            <a className={styles.print}>
+            <a 
+              onClick={printPage} 
+              className={styles.print}
+            >
               <FontAwesomeIcon icon={faPrint} />
             </a>
-          </Link>
           <h2>{resumeContent.about.intro}</h2>
           <h4>
             {resumeContent.about.title} @ {resumeContent.about.employer}
