@@ -10,6 +10,10 @@
   margin-top: 2rem;
   z-index: 10;
 
+  @media print {
+    position: absolute;
+  }
+
   .container {
     @include container;
     display: flex;
@@ -24,6 +28,10 @@
   .nav {
     display: flex;
     flex-direction: column;
+
+    @media print {
+      display: none;
+    }
 
     &:hover a {
       color: $color-gray;

@@ -48,7 +48,7 @@ export const resumeContent = {
   ],
   experience: [
     {
-      title: "Engineering Team Lead",
+      title: "Engineering Manager",
       employer: "Unqork",
       type: "Full-time",
       dateStart: "2019",
